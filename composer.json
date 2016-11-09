@@ -1,0 +1,36 @@
+{
+    "name": "foo/Hw4",
+    "type": "Fourth homework of CS 174 in Fall 2016",
+    "authors": [
+        {
+            "name": "Ankit Basarkar",
+            "email": "youremail@email.com"
+        },
+	{
+		"name": "Gaurav Gupta",
+            	"email": "youremail@email.com"	
+	},
+	{
+		"name": "Bhargava Ramisetty",
+            	"email": "bhargava.ramisetty@gmail.com"
+	}
+    ],
+
+    "require": {
+
+	"simpletest/simpletest": "1.1.*"	
+
+	},
+	"autoload": {
+	    "psr-4": {
+	    "foo\\hw4\\": "",
+	    "foo\\hw4\\configs\\": "src/configs/",
+		"foo\\hw4\\controllers\\": "src/controllers/",
+		"foo\hw4\\models\\": "src/models/",
+		"foo\\hw4\\views\\": "src/views/",
+		"foo\\hw4\\views\\elements\\": "src/views/elements/",
+		"foo\\hw4\\views\\helpers\\": "src/views/helpers/"
+    	}
+  	}
+
+}
