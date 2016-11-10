@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html> 
+<head> 
+<meta charset="utf-8">
+<style type="text/css">
+#board{
+	width: 500px;
+	height: 500px;
+	border: 1px solid #000000;
+}
+
+</style>
+</head>
+
+<body>
+<canvas id="board"> </canvas>
+<script type="text/javascript" src="chart.js"></script>
+
+<script type="text/javascript">
+var graph = new Chart("board",
+    {"Jan":7, "Feb":20, "Dec":5}, 
+    {"title":"Test Chart - Month v Value"});
+console.log("ran");
+graph.draw();
+</script>
+
+</body>
+
+
+</html>
