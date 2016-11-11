@@ -41,8 +41,8 @@ function Chart(chart_id, data)
         'title' : '', // title text appears at top
         'title_style' : 'font-size:24pt; text-align: center;',
             // CSS styles to apply to title text
-        'type' : 'LineGraph', // currently, can be either a LineGraph or
-            //PointGraph
+        'type' : 'Histogram', // currently, can be either a LineGraph or
+            //PointGraph or Histogram
         'width' : 500 //width of area to draw into in pixels
     };
     for (var property_key in property_defaults) {
@@ -148,8 +148,13 @@ function Chart(chart_id, data)
             c.stroke();
         }
         // Draw x ticks and values
+        if(self.type == "Histogram"){
+            var dx = (self.width - 2 * self.x_padding) /
+                (Object.keys(data).length);
+        }else{
         var dx = (self.width - 2 * self.x_padding) /
-            (Object.keys(data).length - 1);
+            (Object.keys(data).length -1); //distance between each x tick mark
+        }
         var x = self.x_padding;
         for (key in data) {
             c.font = self.tick_font_size + "px serif";
@@ -199,13 +204,60 @@ function Chart(chart_id, data)
             (Object.keys(data).length - 1);
         var height = self.height - self.y_padding  - self.tick_length;
         c.moveTo(x, self.tick_length + height * (1 -
-            (data[self.start] - self.min_value)/self.range));
+            (data[self.start] - self.min_value)/self.range)); //move to origin
+            //     console.log("self.start: "+data[self.start]
+            // +"\nself.min_value: " +self.min_value
+            // +"\nself.range: "+self.range);
         for (key in data) {
             y = self.tick_length + height * 
                 (1 - (data[key] - self.min_value)/self.range);
+                // console.log("data[key]: "+ data[key]
+                //     +"\ny: "+y);
             c.lineTo(x, y);
             x += dx;
         }
         c.stroke();
+    }
+
+    p.drawHistogram = function(){
+        self.drawGraph();
+        var c = context;
+        c.beginPath();
+        var x = self.x_padding;
+        var dx =  (self.width - 2*self.x_padding) /
+            (Object.keys(data).length);
+        var height = self.height - self.y_padding  - self.tick_length;
+        c.moveTo(x, self.tick_length + height * (1 -
+            (data[self.start] - self.min_value)/self.range));
+
+        for (key in data) {
+            var dy = (self.height - self.y_padding); //y=0 point
+            y = self.tick_length + height * 
+                (1 - (data[key] - self.min_value)/self.range); //current y value
+            c.fillRect(x, y, dx, dy-y);
+            // console.log("y: " + y);
+            x += dx;
+            y += dy;
+            // console.log(x+" y:" + y +" dx: "+ dx + " dy:" +dy);
+        }
+        c.stroke();
+    }
+        p.drawGraph = function() // renders entire blank graph
+    {
+        self.initMinMaxRange();
+        self.renderAxes();
+        var dx = (self.width - 2*self.x_padding) /
+            (Object.keys(data).length - 1);
+        var c = context;
+        c.lineWidth = self.line_width;
+        c.strokeStyle = self.data_color;
+        c.fillStyle = self.data_color;
+        // var height = self.height - self.y_padding - self.tick_length;
+        // var x = self.x_padding;
+        // for (key in data) {
+        //     y = self.tick_length + height *
+        //         (1 - (data[key] - self.min_value)/self.range);
+        //     x += dx;
+        // }
     }
 }
