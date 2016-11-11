@@ -37,13 +37,14 @@ function Chart(chart_id, data)
         'point_radius' : 3, //radius of points that are plot in point graph
         'tick_length' : 10, // length of tick marks along axes
         'ticks_y' : 5, // number of tick marks to use for the y axis
-        'tick_font_size' : 10, //size of font to use when labeling ticks
+        'tick_font_size' : 11, //size of font to use when labeling ticks
         'title' : '', // title text appears at top
         'title_style' : 'font-size:24pt; text-align: center;',
             // CSS styles to apply to title text
         'type' : 'Histogram', // currently, can be either a LineGraph or
             //PointGraph or Histogram
-        'width' : 500 //width of area to draw into in pixels
+        'width' : 500, //width of area to draw into in pixels
+        'histogram_margin': 5
     };
     for (var property_key in property_defaults) {
         if (typeof properties[property_key] !== 'undefined') {
@@ -148,23 +149,28 @@ function Chart(chart_id, data)
             c.stroke();
         }
         // Draw x ticks and values
+        var x;
         if(self.type == "Histogram"){
             var dx = (self.width - 2 * self.x_padding) /
                 (Object.keys(data).length);
+                x = self.x_padding+(dx/1.9); // (dx/1.9) = margin between month labels
         }else{
         var dx = (self.width - 2 * self.x_padding) /
             (Object.keys(data).length -1); //distance between each x tick mark
+            x = self.x_padding;
         }
-        var x = self.x_padding;
-        for (key in data) {
+        
+        for (key in data) { //writes Month
             c.font = self.tick_font_size + "px serif";
             c.fillText(key, x - self.tick_font_size/2 * (key.length - 0.5), 
                 self.height - self.y_padding +  self.tick_length +
                 self.tick_font_size, self.tick_font_size * (key.length - 0.5));
-            c.beginPath();
-            c.moveTo(x, self.height - self.y_padding + self.tick_length);
-            c.lineTo(x, self.height - self.y_padding);
-            c.stroke();
+            if(self.type != "Histogram"){
+                c.beginPath();
+                c.moveTo(x, self.height - self.y_padding + self.tick_length);
+                c.lineTo(x, self.height - self.y_padding);
+                c.stroke();
+            }
             x += dx;
         }
     }
@@ -234,7 +240,7 @@ function Chart(chart_id, data)
             var dy = (self.height - self.y_padding); //y=0 point
             y = self.tick_length + height * 
                 (1 - (data[key] - self.min_value)/self.range); //current y value
-            c.fillRect(x, y, dx, dy-y);
+            c.fillRect(x, y, dx-self.histogram_margin, dy-y);
             // console.log("y: " + y);
             x += dx;
             y += dy;
