@@ -4,8 +4,6 @@
 <meta charset="utf-8">
 <style type="text/css">
 #board{
-	width: 500px;
-	height: 500px;
 	border: 1px solid #000000;
 }
 
@@ -13,12 +11,12 @@
 </head>
 
 <body>
-<canvas id="board"> </canvas>
+<div id="board"> </div>
 <script type="text/javascript" src="chart.js"></script>
 
 <script type="text/javascript">
 var graph = new Chart("board",
-    {"Jan":7, "Feb":20, "Dec":5}, 
+    {"Jan":8, "Feb":1, "Mar": 7, "Dec":15}, 
     {"title":"Test Chart - Month v Value"});
 console.log("ran");
 graph.draw();
