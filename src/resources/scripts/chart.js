@@ -243,7 +243,6 @@ function Chart(chart_id, chart_type, data)
             dx = dx/4;
             var height = self.height - self.y_padding  - self.tick_length;
             c.moveTo(x, self.tick_length + height * (1 -(data[self.start] - self.min_value)/self.range)); //move to origin
-            c.fillStyle(self.data_color[Y_Index]);
             for(var Y_Index = 0; Y_Index<Y_Values.length; Y_Index++){
 				var dy = (self.height - self.y_padding); //y=0 point
                 y = self.tick_length + height * (1 - (Y_Values[X_Index][Y_Index] - self.min_value)/self.range);
