@@ -1,5 +1,5 @@
 {
-    "name": "foo/Hw4",
+    "name": "ABG/Hw4",
     "type": "Fourth homework of CS 174 in Fall 2016",
     "authors": [
         {
@@ -23,14 +23,7 @@
 	},
 	"autoload": {
 	    "psr-4": {
-	    "foo\\hw4\\": "",
-	    "foo\\hw4\\configs\\": "src/configs/",
-		"foo\\hw4\\controllers\\": "src/controllers/",
-		"foo\\hw4\\models\\": "src/models/",
-		"foo\\hw4\\views\\": "src/views/",
-		"foo\\hw4\\views\\elements\\": "src/views/elements/",
-		"foo\\hw4\\views\\helpers\\": "src/views/helpers/"
+	    "cool_name_for_your_group\\hw4\\": "src"
     	}
   	}
-
 }

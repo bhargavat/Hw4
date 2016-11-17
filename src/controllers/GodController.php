@@ -1,7 +1,7 @@
 <?php
 
 namespace cool_name_for_your_group\hw4\controllers;
-require_once HW4ROOT."/src/views/LandingView.php";
+
 use cool_name_for_your_group\hw4\views\LandingView as LandingView;
 
 class GodController
