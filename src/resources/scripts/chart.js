@@ -89,6 +89,9 @@ function Chart(chart_id, chart_type, data)
         for(var index in Row_Values){
            var Y_Point_Values = Object.values(data[Row_Values[index]]);
            for(var index2 in Y_Point_Values){
+			   if(Y_Point_Values[index2]==""){
+				   continue;
+			   }
               if(self.min_value === null) {
                  self.min_value = Number(Y_Point_Values[index2]);
                  self.max_value = Number(Y_Point_Values[index2]);
@@ -196,6 +199,10 @@ function Chart(chart_id, chart_type, data)
 		for(var X_Index = 0; X_Index<Object.keys(data).length; X_Index++){
 			c.fillStyle = self.data_color[X_Index];        
 			for(var  Y_Index= 0; Y_Index<Y_Values.length; Y_Index++){
+				if(Y_Values[Y_Index][X_Index]==""){
+				   x += dx;
+				   continue;
+			   }
 				y = self.tick_length+height *(1-(Y_Values[Y_Index][X_Index] - self.min_value)/self.range);
                 self.plotPoint(x, y);
 				x += dx;
@@ -222,6 +229,10 @@ function Chart(chart_id, chart_type, data)
             c.strokeStyle = self.data_color[X_Index];
         
             for(var  Y_Index= 0; Y_Index<Y_Values.length; Y_Index++){
+                if(Y_Values[Y_Index][X_Index]==""){
+					x += dx;
+				   continue;
+			   }
                 y = self.tick_length + height * 
                 (1 - (Y_Values[Y_Index][X_Index] - self.min_value)/self.range);
                 c.lineTo(x, y);
@@ -244,6 +255,10 @@ function Chart(chart_id, chart_type, data)
             var height = self.height - self.y_padding  - self.tick_length;
             c.moveTo(x, self.tick_length + height * (1 -(data[self.start] - self.min_value)/self.range)); //move to origin
             for(var Y_Index = 0; Y_Index<Y_Values.length; Y_Index++){
+				if(Y_Values[X_Index][Y_Index]==""){
+				   x += dx;
+				   continue;
+			   }
 				var dy = (self.height - self.y_padding); //y=0 point
                 y = self.tick_length + height * (1 - (Y_Values[X_Index][Y_Index] - self.min_value)/self.range);
                 c.fillStyle = self.data_color[Y_Index];
