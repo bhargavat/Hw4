@@ -1,4 +1,3 @@
-
 <?php
 $data = '{"Jan": [5, 10, 15, 20] , "Feb":[20,10,"",22], "Mar":[5,3,"",4], "April":[10,"",1,2]}';
 
@@ -19,12 +18,13 @@ foreach ($keys as $index1=>$label) {
 	echo "<label text=".(string)$label.">";
 foreach ($values as $index2=>$value){
 		// print $values[$index1][$index2]." ";
+    if(strlen($values[$index1][$index2]) > 0 ){
 	echo "<value>".$values[$index1][$index2]."</value>";
+    }
 }
 	echo "</label>";
 }
 echo "</chart>";
-
 
 /*
 Sample XML code that conforms to chart.dtd:
@@ -44,4 +44,3 @@ Sample XML code that conforms to chart.dtd:
 </chart>
 
 */
-
