@@ -6,20 +6,18 @@ $out = json_decode($data, true);
 $keys = array_keys($out); 
 $values = array_values($out);
 
-// echo gettype($keys);
-// echo gettype($values);
-$title = 'Month v Value';
+$title = 'Month v Value'; //need to change to query fetch from db
 
 echo "<?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE chart SYSTEM 'chart.dtd'>
-<chart type='Histogram' title=".$title.">";
+<chart title='".$title."'>";
 foreach ($keys as $index1=>$label) {
 	// print $label;
-	echo "<label text=".(string)$label.">";
+	echo "<label text='".$label."'>";
 foreach ($values as $index2=>$value){
 		// print $values[$index1][$index2]." ";
     if(strlen($values[$index1][$index2]) > 0 ){
-	echo "<value>".$values[$index1][$index2]."</value>";
+	echo '<value>'.$values[$index1][$index2].'</value>';
     }
 }
 	echo "</label>";
@@ -31,7 +29,7 @@ Sample XML code that conforms to chart.dtd:
 
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE chart SYSTEM "chart.dtd" >
-<chart type="Histogram" title="Month v. Value">
+<chart title="Month v. Value">
     <label text="Jan">
         <value>5</value>
         <value>7</value>
