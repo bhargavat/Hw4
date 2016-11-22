@@ -3,6 +3,7 @@
 namespace cool_name_for_your_group\hw4\controllers;
 
 use cool_name_for_your_group\hw4\views\LandingView as LandingView;
+use cool_name_for_your_group\hw4\models\ChartData as ChartData;
 
 class GodController
 {

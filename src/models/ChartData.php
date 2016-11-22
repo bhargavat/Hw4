@@ -2,14 +2,14 @@
 
 
 namespace cool_name_for_your_group\hw4\models;
-require_once HW4ROOT.'/src/models/Model.php';
+
 
 use cool_name_for_your_group\hw4\models\Model as Model;
 
 class ChartData extends Model
 {
     public $connection;
-   public $md5Value;
+    public $md5Value;
     public $chartTitle;
     public $chartData;
    
