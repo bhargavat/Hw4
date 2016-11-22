@@ -7,7 +7,7 @@ class formInput extends Element
     public function render($data)
     {
         ?>
-        <form action="index.php">
+        <form action="index.php" name="myForm" onsubmit="return textareaValidate()">
 			<input type="hidden" name="s" value="submitChartValue">
             <?php 
 				if($data[flag] == 0){
@@ -20,6 +20,7 @@ class formInput extends Element
 			
 			<?php }?>
 				<button type="submit">Share</button>
+				<p id="error"></p>
         </form>
         <?php
     }

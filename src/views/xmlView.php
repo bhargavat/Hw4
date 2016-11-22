@@ -2,9 +2,9 @@
 
 namespace cool_name_for_your_group\hw4\views;
 require_once $_SERVER['DOCUMENT_ROOT']."/Hw4/src/views/View.php";
-// require_once HW4ROOT.'/src/views/elements/elementHeader.php';
-// require_once HW4ROOT.'/src/views/elements/elementFooter.php';
-// require_once HW4ROOT.'/src/resources/scripts/chart.php';
+require_once HW4ROOT.'/src/views/elements/elementHeader.php';
+require_once HW4ROOT.'/src/views/elements/elementFooter.php';
+require_once HW4ROOT.'/src/resources/scripts/chart.php';
 use cool_name_for_your_group\hw4\views\elements\elementHeader as htmlHeader;
 use cool_name_for_your_group\hw4\views\elements\elementFooter as htmlFooter;
 class showXML extends View
