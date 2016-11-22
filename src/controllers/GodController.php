@@ -64,10 +64,28 @@ class GodController
 	}
     }
     function loadLineGraph($hashValue){ 
+	$fetchData = new ChartData();
+	$statusData = array();
+	$statusData = $fetchData->fetchChartData($hashValue);
+	$statusData[chartType] = "LineGraph";
+	$showData = new ShowChartData();
+	$showData->render($statusData); 
     }
     function loadPointGraph($hashValue){ 
+	$fetchData = new ChartData();
+	$statusData = array();
+	$statusData = $fetchData->fetchChartData($hashValue);
+	$statusData[chartType] = "PointGraph";
+	$showData = new ShowChartData();
+	$showData->render($statusData);  
     }
     function loadHistogram($hashValue){ 
+	$fetchData = new ChartData();
+	$statusData = array();
+	$statusData = $fetchData->fetchChartData($hashValue);
+	$statusData[chartType] = "Histogram";
+	$showData = new ShowChartData();
+	$showData->render($statusData);  
     }
     function loadXML($hashValue){ 
     }
