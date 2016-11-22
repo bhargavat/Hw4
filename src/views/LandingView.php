@@ -15,15 +15,19 @@ class LandingView extends View
         //body here please
 
         ?>
+        <script type='text/javascript' src="validation.js"></script>
         <h1>PasteChart</h1>
-        <h2>Share Your Data In Charts</h2>
+        <h2>Share Your Data In Charts!</h2>
         <?php
 		
 		$formInput = new formInput($this);
         $formInput->render($data);
-        
-        
+        ?>
+        <?php
         $end = new htmlFooter(__FILE__);
         $end->render(__FILE__);
     }
 }
+?>
+
+
