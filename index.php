@@ -13,6 +13,12 @@ if($_REQUEST['m']=='LandingPage')
     $controller->loadLandingPage();
 }
 
+if($_REQUEST['s']=='submitChartValue'){
+	$data = array();
+	$data[] = $_REQUEST['TitleValue'];
+	$data[] = $_REQUEST['DataValues'];
+	$controller->submitChart($data);
+}
 if($_REQUEST['c']=='chart' && $_REQUEST['a']=='show'){
 	$hashValue = $_REQUEST['arg2'];
 	
