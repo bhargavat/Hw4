@@ -1,5 +1,8 @@
 <?php
-namespace cool_name_for_your_group\hw4\configs\config;
+
+namespace cool_name_for_your_group\hw4\configs;
+
+
 class config
 {
     const Servername = "localhost";
@@ -8,7 +11,7 @@ class config
     const DbName = "HW4";
     const Mycon = '';
 
-    const HW3root = "http://localhost/Hw4";
+    const HW4root = "http://localhost/Hw4";
 }
 
 ?>

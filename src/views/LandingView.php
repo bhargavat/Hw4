@@ -1,7 +1,10 @@
 <?php
 
 namespace cool_name_for_your_group\hw4\views;
-
+require_once HW4ROOT."/src/views/View.php";
+require_once HW4ROOT.'/src/views/elements/elementHeader.php';
+require_once HW4ROOT.'/src/views/elements/elementFooter.php';
+require_once HW4ROOT.'/src/views/elements/formInput.php';
 use cool_name_for_your_group\hw4\views\elements\elementHeader as htmlHeader;
 use cool_name_for_your_group\hw4\views\elements\elementFooter as htmlFooter;
 use cool_name_for_your_group\hw4\views\elements\formInput as formInput;
@@ -17,9 +20,9 @@ class LandingView extends View
         <h1>PasteChart</h1>
         <h2>Share Your Data In Charts</h2>
         <?php
-
-        $formInput = new formInput($this);
-        $formInput->render($data[0]);
+		
+		$formInput = new formInput($this);
+        $formInput->render($data);
         
         
         $end = new htmlFooter(__FILE__);
