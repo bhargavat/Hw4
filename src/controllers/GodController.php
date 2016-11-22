@@ -8,9 +8,8 @@ class GodController
 {
     
     function loadLandingPage()
-    {   $data[] = 0;
-		$data[] =1;
-        $landingView = new LandingView();
+    {   $data[flag] = 0;
+	$landingView = new LandingView();
         $landingView->render($data);
 
     }
