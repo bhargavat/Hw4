@@ -8,9 +8,18 @@ class formInput extends Element
     {
         ?>
         <form action="index.php">
-            <input type="text" name="TitleFilter" placeholder="Chart Title"/><br/>
-            <textarea name ="DataValues" placeholder="Jan,600,5.4,              Feb,450,5.0"></textarea><br/>
-            <button type="submit">Share</button>
+			<input type="hidden" name="s" value="submitChartValue">
+            <?php 
+				if($data[flag] == 0){
+				?><input type="text" name="TitleValue" placeholder="Chart Title" /><br/>
+				<textarea name ="DataValues" placeholder="Jan,600,5.4,              Feb,450,5.0"></textarea><br/>
+			<?php }
+				else{
+				?><input type="text" name="TitleValue" placeholder="Chart Title" /><br/>
+				  <textarea name ="DataValues" placeholder="Jan,600,5.4,              Feb,450,5.0"></textarea><br/> 
+			
+			<?php }?>
+				<button type="submit">Share</button>
         </form>
         <?php
     }
