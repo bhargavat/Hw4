@@ -1,4 +1,5 @@
 <?php
+namespace cool_name_for_your_group\hw4\configs\config;
 class config
 {
     const Servername = "localhost";
