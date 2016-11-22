@@ -1,6 +1,7 @@
 <?php
-//define('HW4ROOT','C:\xampp\htdocs\Hw4');
-require_once "vendor/autoload.php";
+define('HW4ROOT','/var/www/html/Hw4');
+
+require_once HW4ROOT."/src/controllers/GodController.php";
 use cool_name_for_your_group\hw4\controllers\GodController as GodController;
 
 $controller = new GodController();
@@ -8,11 +9,9 @@ if(empty($_REQUEST))
 {
     $controller->loadLandingPage();
 }
-if($_REQUEST['m']=='LandingPage')
-{
+if($_REQUEST['m']=='LandingPage'){
     $controller->loadLandingPage();
 }
-
 if($_REQUEST['s']=='submitChartValue'){
 	$data = array();
 	$data[] = $_REQUEST['TitleValue'];
@@ -46,4 +45,4 @@ if($_REQUEST['c']=='chart' && $_REQUEST['a']=='show'){
 //BASE_URL/?c=chart&a=show&arg1=jsonp&arg2=XXXXX&arg3=javascript_callback
 
 
-print_r($_REQUEST);
+//print_r($_REQUEST);
