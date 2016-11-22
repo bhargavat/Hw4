@@ -36,7 +36,11 @@ if($_REQUEST['c']=='chart' && $_REQUEST['a']=='show'){
 		$controller->loadjson($hashValue);
 	}
 	if($_REQUEST['arg1']=='jsonp'){
-		$controller->loadjsonp($hashValue);
+		$dataValue = array();
+        $dataValue[] = $hashValue;
+        $dataValue[] = $_REQUEST[arg3];
+	    $controller->loadjsonp($dataValue);
+
 	}
 }
 

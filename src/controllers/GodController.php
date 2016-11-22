@@ -4,6 +4,7 @@ namespace cool_name_for_your_group\hw4\controllers\GodController;
 
 use cool_name_for_your_group\hw4\views\LandingView\LandingView as LandingView;
 use cool_name_for_your_group\hw4\views\ShowChartData as ShowChartData;
+use cool_name_for_your_group\hw4\views\ShowJasonData as ShowJasonData;
 use cool_name_for_your_group\hw4\models\ChartData as ChartData;
 
 
@@ -11,7 +12,7 @@ class GodController
 {
 
     function loadLandingPage()
-    {   $data[flag] = 0;
+    {   $data[titleFlag] = 0;
         $landingView = new LandingView();
         $landingView->render($data);
 
@@ -77,7 +78,7 @@ class GodController
             $data[correctValues] = $correctArray;
             $landingView = new LandingView();
             $landingView->render($data);
-            //print_r($data);
+
         }
     }
     function loadLineGraph($hashValue){
@@ -85,6 +86,7 @@ class GodController
         $statusData = array();
         $statusData = $fetchData->fetchChartData($hashValue);
         $statusData[chartType] = "LineGraph";
+        $statusData[hvalue] = $statusData[0];
         $showData = new ShowChartData();
         $showData->render($statusData);
     }
@@ -93,6 +95,8 @@ class GodController
         $statusData = array();
         $statusData = $fetchData->fetchChartData($hashValue);
         $statusData[chartType] = "PointGraph";
+        $statusData[hvalue] = $statusData[0];
+
         $showData = new ShowChartData();
         $showData->render($statusData);
     }
@@ -101,14 +105,40 @@ class GodController
         $statusData = array();
         $statusData = $fetchData->fetchChartData($hashValue);
         $statusData[chartType] = "Histogram";
+        $statusData[hvalue] = $statusData[0];
         $showData = new ShowChartData();
         $showData->render($statusData);
     }
     function loadXML($hashValue){
     }
     function loadjson($hashValue){
+        $fetchData = new ChartData();
+        $statusData = array();
+        $statusData = $fetchData->fetchChartData($hashValue);
+        $statusData[2] = json_decode($statusData[2]);
+        $data = json_encode(array("HashValue"=> $statusData[0],"title"=>$statusData[1], "Data"=>$statusData[2] ));
+        $finaldata = array();
+        $finaldata[] = $data;
+        $finaldata[chartType] = "json" ;
+        $finaldata[hvalue] = $statusData[0];
+        $showData = new ShowJasonData();
+        $showData->render($finaldata);
     }
-    function loadjsonp($hashValue){
+    function loadjsonp($dataValue){
+        $fetchData = new ChartData();
+        $statusData = array();
+        $statusData = $fetchData->fetchChartData($dataValue[0]);
+        $statusData[2] = json_decode($statusData[2]);
+        $data = json_encode(array("HashValue"=> $statusData[0],"title"=>$statusData[1], "Data"=>$statusData[2] ));
+        $finaldata = array();
+        $finaldata[] = $data;
+        $finaldata[] = $dataValue[1];
+        $finaldata[flag] =1;
+        $finaldata[chartType] ="jsonp";
+        $finaldata[hvalue] = $statusData[0];
+        $showData = new ShowJasonData();
+        $showData->render($finaldata);
+
     }
 
 }

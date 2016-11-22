@@ -10,7 +10,7 @@ class LandingView extends View
 {
     function render($data)
     {
-        $head = new htmlHeader($this);
+        $head = new htmlHeader($data);
         $head->render($this);
         //body here please
 

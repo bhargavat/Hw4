@@ -10,9 +10,17 @@ class elementHeader extends Element
         ?>
         <!DOCTYPE html>
         <html>
-        <head>
+            <head>
             <meta charset="UTF-8">
-            <title>PasteChart</title>
+        <?php
+        if($data[titleFlag] == 0){
+            echo " <title>PasteChart</title>";
+        }
+        else{
+
+            echo " <title>".$data[hvalue]." ". $data[chartType]." - PasteChart</title>";
+        }
+        ?>
         </head>
 
         <body>

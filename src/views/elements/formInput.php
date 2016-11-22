@@ -10,10 +10,11 @@ class formInput extends Element
         <form action="index.php" name="myForm" onsubmit="return textareaValidate()">
 			<input type="hidden" name="s" value="submitChartValue">
             <?php 
-				if($data[flag] == 0){
-				?><input type="text" name="TitleValue" placeholder="Chart Title" /><br/>
-				<textarea name ="DataValues" placeholder="Jan,600,5.4,              Feb,450,5.0"></textarea><br/>
-			<?php }
+				if($data[flag] == 1){
+				echo '<input type="text" name="TitleValue" placeholder="Chart Title" value="'.$data[1].'"/><br/>';
+				echo '<textarea name ="DataValues" placeholder="Jan,600,5.4,              Feb,450,5.0">'.$data[2].'</textarea><br/>';
+				echo "<p>correct value<br/>".$data[correctValues]."</p> ";
+            }
 				else{
 				?><input type="text" name="TitleValue" placeholder="Chart Title" /><br/>
 				  <textarea name ="DataValues" placeholder="Jan,600,5.4,              Feb,450,5.0"></textarea><br/> 

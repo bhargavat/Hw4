@@ -11,7 +11,7 @@ class config
     const DbName = "HW4";
     const Mycon = '';
 
-    const HW4root = "http://localhost/Hw4";
+    const BASE_URL = "http://localhost/Hw4/index.php";
 }
 
 ?>

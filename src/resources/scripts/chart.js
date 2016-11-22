@@ -196,7 +196,7 @@ function Chart(chart_id, chart_type, data)
         c.lineWidth = self.line_width;
         var height = self.height - self.y_padding - self.tick_length;
 		var x = self.x_padding;        
-		for(var X_Index = 0; X_Index<Object.keys(data).length; X_Index++){
+		for(var X_Index = 0; X_Index<=Object.keys(data).length; X_Index++){
 			c.fillStyle = self.data_color[X_Index];        
 			for(var  Y_Index= 0; Y_Index<Y_Values.length; Y_Index++){
 				if(Y_Values[Y_Index][X_Index]==""){
@@ -219,7 +219,8 @@ function Chart(chart_id, chart_type, data)
         self.drawPointGraph();
         var c = context;
         var Y_Values = Object.values(data);
-        for(var X_Index = 0; X_Index<Object.keys(data).length; X_Index++){            
+        for(var X_Index = 0; X_Index<=Object.keys(data).length; X_Index++){
+
             c.beginPath();
             var x = self.x_padding;
             var dx =  (self.width - 2*self.x_padding) /(Object.keys(data).length - 1);
@@ -229,6 +230,7 @@ function Chart(chart_id, chart_type, data)
             c.strokeStyle = self.data_color[X_Index];
         
             for(var  Y_Index= 0; Y_Index<Y_Values.length; Y_Index++){
+                console.log(Y_Values[Y_Index][X_Index]);
                 if(Y_Values[Y_Index][X_Index]==""){
 					x += dx;
 				   continue;
@@ -247,23 +249,40 @@ function Chart(chart_id, chart_type, data)
         self.drawGraph();
         var c = context;
 		var Y_Values = Object.values(data);
-		var x = self.x_padding;            
-		for(var X_Index = 0; X_Index<Object.keys(data).length; X_Index++){            
+       var x = self.x_padding;
+		var total = 0;
+        for(var index = 0; index<Object.keys(data).length;index++){
+            console.log(index);
+            for(var index2 = 0; index2<=Y_Values.length; index2++){
+                total = total+1;
+
+            }
+        }
+
+        console.log(count);
+        for(var X_Index = 0; X_Index<Object.keys(data).length; X_Index++){
 			c.beginPath();
-            var dx =  (self.width - 2*self.x_padding) /(Object.keys(data).length);
-            dx = dx/4;
+            var dx =  (self.width - 2*self.x_padding) /total;
+
             var height = self.height - self.y_padding  - self.tick_length;
             c.moveTo(x, self.tick_length + height * (1 -(data[self.start] - self.min_value)/self.range)); //move to origin
-            for(var Y_Index = 0; Y_Index<Y_Values.length; Y_Index++){
-				if(Y_Values[X_Index][Y_Index]==""){
-				   x += dx;
+            var count = 0;
+            for(var Y_Index = 0; Y_Index<=Y_Values.length; Y_Index++){
+                if(Y_Values[X_Index][Y_Index]==""){
+                    continue;
+                }
+                count = count+1;
+            }
+            for(var Y_Index = 0; Y_Index<=Y_Values.length; Y_Index++){
+
+                if(Y_Values[X_Index][Y_Index]==""){
 				   continue;
 			   }
 				var dy = (self.height - self.y_padding); //y=0 point
                 y = self.tick_length + height * (1 - (Y_Values[X_Index][Y_Index] - self.min_value)/self.range);
                 c.fillStyle = self.data_color[Y_Index];
                 c.fillRect(x, y, dx-self.histogram_margin, dy-y);
-				x += dx;
+				x = x + dx;
 				y += dy;
              }
 			c.stroke();
