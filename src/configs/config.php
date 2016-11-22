@@ -9,7 +9,7 @@ class config
     const DbName = "HW4";
     const Mycon = '';
 
-    const HW3root = "http://localhost/Hw4";
+    const HW4root = "http://localhost/Hw4";
 }
 
 ?>
