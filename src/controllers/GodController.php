@@ -1,10 +1,8 @@
 <?php
 
-namespace cool_name_for_your_group\hw4\controllers;
-require_once HW4ROOT."/src/views/LandingView.php";
-require_once HW4ROOT."/src/models/ChartData.php";
-require_once HW4ROOT."/src/views/ShowChartData.php";
-use cool_name_for_your_group\hw4\views\LandingView as LandingView;
+namespace cool_name_for_your_group\hw4\controllers\GodController;
+
+use cool_name_for_your_group\hw4\views\LandingView\LandingView as LandingView;
 use cool_name_for_your_group\hw4\views\ShowChartData as ShowChartData;
 use cool_name_for_your_group\hw4\models\ChartData as ChartData;
 
@@ -69,7 +67,7 @@ class GodController
             if($statusData == 1){
                 echo "Value inserted";
             }
-            header("Location: index.php?c=chart&a=show&arg1=LineGraph&arg2=".$data[2]);
+            header("Location: https://www.google.com");
             exit();
         }
         else{

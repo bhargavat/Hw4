@@ -3,7 +3,7 @@
 
 namespace cool_name_for_your_group\hw4\models;
 
-use cool_name_for_your_group\hw4\configs\config;
+use cool_name_for_your_group\hw4\configs\config as config;
 
 abstract class Model
 {

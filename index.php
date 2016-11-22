@@ -1,9 +1,8 @@
 <?php
-define('HW4ROOT','/var/www/html/Hw4');
+require_once 'vendor/autoload.php';
 
-require_once HW4ROOT."/src/controllers/GodController.php";
-use cool_name_for_your_group\hw4\controllers\GodController as GodController;
-
+use cool_name_for_your_group\hw4\controllers\GodController\GodController as GodController;
+//use cool_name_for_your_group\hw4\controllers\GodController\GodController;
 $controller = new GodController();
 if(empty($_REQUEST))
 {
