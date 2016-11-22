@@ -19,7 +19,7 @@ class GodController
     function submitChart($data){
 	$flag = 0; // use to check if the data is perfect or not
 	$title = $data[0];	
-	$insertData = new ChartData();
+
 	$Values = explode(PHP_EOL,$data[1]);
 	$subValues = array();
 	foreach($Values as $val){
@@ -53,6 +53,7 @@ class GodController
 			$subVal = preg_replace("/[\n\r]/","", $subVal);
 			$finalData[$storeTemp] = array_values($subVal);
 		}
+		$insertData = new ChartData();
 		$data[1] = json_encode($finalData);
 		$data[] = md5($data[1]);
 		$statusData = $insertData->writeChartData($data);
