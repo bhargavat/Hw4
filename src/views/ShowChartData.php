@@ -12,6 +12,7 @@ class ShowChartData extends View
     function render($data)
     {
 		echo "in reder";
+        echo $data[chartType];
         $head = new htmlHeader($this);
         $head->render($this);
         //body here please
@@ -27,6 +28,7 @@ class ShowChartData extends View
         <h1>PasteChart</h1>
         <h2>Share Your Data In Charts</h2>
         <p id="some_html_element_id"></p>
+        
 		<script>
 			graph = new Chart("some_html_element_id", 'LineGraph', {"Jan": [5, 10, 15, 20] , "Feb":[20,10,"",22], "Mar":[5,3,"",4], "April":[10,"",1,2]}, {"title":"Test Chart - Month v Value"} );
 			graph.draw();
