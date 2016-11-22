@@ -67,8 +67,9 @@ class GodController
             if($statusData == 1){
                 echo "Value inserted";
             }
-            header("Location: https://www.google.com");
-            exit();
+            $url = "http://localhost/Hw4/index.php?c=chart&a=show&arg1=LineGraph&arg2=".$data[2];
+			header("Location: ".$url);
+			exit();
         }
         else{
             $data[flag] = 1;
