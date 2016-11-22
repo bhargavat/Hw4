@@ -3,6 +3,8 @@
 namespace cool_name_for_your_group\hw4\controllers;
 
 use cool_name_for_your_group\hw4\views\LandingView as LandingView;
+
+use cool_name_for_your_group\hw4\views\ShowChartData as ShowChartData;
 use cool_name_for_your_group\hw4\models\ChartData as ChartData;
 
 class GodController
@@ -17,7 +19,7 @@ class GodController
     function submitChart($data){
 	$flag = 0; // use to check if the data is perfect or not
 	$title = $data[0];	
-	$insertData = new Story();
+	$insertData = new ChartData();
 	$Values = explode(PHP_EOL,$data[1]);
 	$subValues = array();
 	foreach($Values as $val){

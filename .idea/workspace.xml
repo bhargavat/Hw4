@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="13b2ecc2-87aa-41d0-b59a-099b873fa2ca" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/controllers/GodController.php" afterPath="$PROJECT_DIR$/src/controllers/GodController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/models/ChartData.php" afterPath="$PROJECT_DIR$/src/models/ChartData.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/models/Model.php" afterPath="$PROJECT_DIR$/src/models/Model.php" />
     </list>
     <ignored path="Hw4.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -32,8 +29,8 @@
             <state relative-caret-position="25">
               <caret line="13" column="22" selection-start-line="13" selection-start-column="22" selection-end-line="13" selection-end-column="22" />
               <folding>
-                <marker date="1479776613082" expanded="true" signature="549:634" ph="Insert into HW4.Chart_Data... " />
-                <marker date="1479776613082" expanded="true" signature="784:875" ph="select chart... Chart_Data" />
+                <marker date="1479777577285" expanded="true" signature="549:634" ph="Insert into HW4.Chart_Data... " />
+                <marker date="1479777577285" expanded="true" signature="784:875" ph="select chart... Chart_Data" />
               </folding>
             </state>
           </provider>
@@ -62,8 +59,8 @@
       <file leaf-file-name="GodController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/controllers/GodController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="375">
-              <caret line="55" column="33" selection-start-line="55" selection-start-column="22" selection-end-line="55" selection-end-column="33" />
+            <state relative-caret-position="350">
+              <caret line="71" column="25" selection-start-line="71" selection-start-column="16" selection-end-line="71" selection-end-column="25" />
               <folding>
                 <element signature="e#60#126#0#PHP" expanded="true" />
               </folding>
@@ -472,12 +469,12 @@
       <workItem from="1479342736639" duration="4050000" />
       <workItem from="1479698999471" duration="602000" />
       <workItem from="1479775702631" duration="1167000" />
-      <workItem from="1479776894580" duration="648000" />
+      <workItem from="1479776894580" duration="803000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="11042000" />
+    <option name="totallyTimeSpent" value="11197000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-11" y="-11" width="1942" height="1042" extended-state="6" />
@@ -893,8 +890,8 @@
         <state relative-caret-position="25">
           <caret line="13" column="22" selection-start-line="13" selection-start-column="22" selection-end-line="13" selection-end-column="22" />
           <folding>
-            <marker date="1479776613082" expanded="true" signature="549:634" ph="Insert into HW4.Chart_Data... " />
-            <marker date="1479776613082" expanded="true" signature="784:875" ph="select chart... Chart_Data" />
+            <marker date="1479777577285" expanded="true" signature="549:634" ph="Insert into HW4.Chart_Data... " />
+            <marker date="1479777577285" expanded="true" signature="784:875" ph="select chart... Chart_Data" />
           </folding>
         </state>
       </provider>
@@ -927,8 +924,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/controllers/GodController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="55" column="33" selection-start-line="55" selection-start-column="22" selection-end-line="55" selection-end-column="33" />
+        <state relative-caret-position="350">
+          <caret line="71" column="25" selection-start-line="71" selection-start-column="16" selection-end-line="71" selection-end-column="25" />
           <folding>
             <element signature="e#60#126#0#PHP" expanded="true" />
           </folding>
